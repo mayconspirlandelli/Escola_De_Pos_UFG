@@ -6,8 +6,15 @@ import os
 
 
 # Obter a chave da API
-load_dotenv()
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+load_dotenv(override=True) 
+load_dotenv(os.path.join("..", ".env"), override=True)
+GEMINI_CHAT_ESCOLA_KEY = os.getenv("GEMINI_CHAT_ESCOLA_KEY")
+
+if not GEMINI_CHAT_ESCOLA_KEY:
+    GEMINI_CHAT_ESCOLA_KEY = os.getenv("GEMINI_CHAT_ESCOLA_KEY")
+
+MODEL_NAME = os.getenv("GEMINI_MODEL")
+
 
 # Iniciando a API
 app = FastAPI()

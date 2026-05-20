@@ -11,7 +11,8 @@ from retriever import retriever
 from rich.console import Console
 from pydantic import BaseModel
 
-from config import GEMINI_API_KEY
+from config import GEMINI_CHAT_ESCOLA_KEY, MODEL_NAME
+
 
 retriever = retriever()
 
@@ -25,8 +26,8 @@ def llm():
 
     #Startando modelo
     llm = ChatGoogleGenerativeAI(
-        api_key = GEMINI_API_KEY,
-        model="gemini-1.5-flash",
+        api_key = GEMINI_CHAT_ESCOLA_KEY,
+        model=MODEL_NAME,
         temperature=0.4,
         max_tokens=None,
         timeout=None,
